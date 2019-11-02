@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SpotifyAPI" Version="1.2.0" />
+    <PackageReference Include="SpotifyAPI.Web" Version="4.2.2" />
+    <PackageReference Include="SpotifyAPI.Web.Auth" Version="4.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SpotifyAPI.Web.Auth\SpotifyAPI.Web.Auth.csproj" />
+    <ProjectReference Include="..\SpotifyAPI.Web\SpotifyAPI.Web.csproj" />
+  </ItemGroup>
+
+</Project>

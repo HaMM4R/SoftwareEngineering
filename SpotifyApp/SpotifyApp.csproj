@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SpotifyAPI.Web.Auth\SpotifyAPI.Web.Auth.csproj" />
+    <ProjectReference Include="..\SpotifyAPI.Web.Example\SpotifyAPI.Web.Example.csproj" />
+    <ProjectReference Include="..\SpotifyAPI.Web.Tests\SpotifyAPI.Web.Tests.csproj" />
+    <ProjectReference Include="..\SpotifyAPI.Web\SpotifyAPI.Web.csproj" />
+  </ItemGroup>
+
+</Project>
