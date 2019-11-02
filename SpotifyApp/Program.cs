@@ -18,7 +18,7 @@ namespace SpotifyApp
 
         internal static void Main(string[] args)
         {
-            SearchSpotifyAlbums spot;
+            SpotifyProfile spot;
             _clientId = string.IsNullOrEmpty(_clientId)
                 ? Environment.GetEnvironmentVariable("SPOTIFY_CLIENT_ID")
                 : _clientId;
@@ -39,7 +39,7 @@ namespace SpotifyApp
             {
                 if (setup)
                 {
-                    spot = new SearchSpotifyAlbums(_spotify);
+                    spot = new SpotifyProfile(_spotify);
                 }
             }
             
