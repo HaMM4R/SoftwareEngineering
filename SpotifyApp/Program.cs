@@ -18,7 +18,7 @@ namespace SpotifyApp
 
         internal static void Main(string[] args)
         {
-            SpotifyProfile spot;
+            SpotifyProfile profile;
             _clientId = string.IsNullOrEmpty(_clientId)
                 ? Environment.GetEnvironmentVariable("SPOTIFY_CLIENT_ID")
                 : _clientId;
@@ -39,7 +39,7 @@ namespace SpotifyApp
             {
                 if (setup)
                 {
-                    spot = new SpotifyProfile(_spotify);
+                    profile = new SpotifyProfile(_spotify);
                 }
             }
             
@@ -70,11 +70,6 @@ namespace SpotifyApp
             PrivateProfile profile = await api.GetPrivateProfileAsync();
             string name = string.IsNullOrEmpty(profile.DisplayName) ? profile.Id : profile.DisplayName;
             Console.WriteLine($"Hello there, {name}!");
-
-            SearchItem search = api.SearchItemsEscaped(test, SearchType.Album);
-            Paging<SimpleAlbum> albums = search.Albums;
-            albums.Items.ForEach(item => Console.WriteLine(item.Name));
-
             Console.WriteLine("Your playlists:");
             Paging<SimplePlaylist> playlists = api.GetUserPlaylists(profile.Id);
             playlists.Items.ForEach(playlist =>

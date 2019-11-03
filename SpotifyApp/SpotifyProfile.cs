@@ -17,17 +17,19 @@ namespace SpotifyApp
         {
             _spotify = s;
             DisplayProfileInformation();
-            DisplayPlaylists(); 
+            DisplayPlaylists();
+
+            SpotifySearching search = new SpotifySearching(_spotify, profile); 
         }
 
-        void DisplayProfileInformation()
+        public void DisplayProfileInformation()
         {
             profile = _spotify.GetPrivateProfile();
             string name = string.IsNullOrEmpty(profile.DisplayName) ? profile.Id : profile.DisplayName;
             Console.WriteLine($"Hello there, {name}!");
         }
 
-        void DisplayPlaylists()
+        public void DisplayPlaylists()
         {
             Console.WriteLine("Your playlists:");
             Paging<SimplePlaylist> playlists = _spotify.GetUserPlaylists(profile.Id);
