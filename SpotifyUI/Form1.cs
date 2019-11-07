@@ -16,5 +16,20 @@ namespace SpotifyUI
         {
             InitializeComponent();
         }
+
+        private void searchSpotify_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void headlines_list_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void songs_list_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
