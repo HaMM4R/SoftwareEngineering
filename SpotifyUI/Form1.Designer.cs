@@ -35,29 +35,29 @@
             // 
             // searchSpotify_btn
             // 
-            this.searchSpotify_btn.Location = new System.Drawing.Point(12, 373);
+            this.searchSpotify_btn.Location = new System.Drawing.Point(12, 388);
             this.searchSpotify_btn.Name = "searchSpotify_btn";
-            this.searchSpotify_btn.Size = new System.Drawing.Size(75, 23);
+            this.searchSpotify_btn.Size = new System.Drawing.Size(113, 50);
             this.searchSpotify_btn.TabIndex = 0;
-            this.searchSpotify_btn.Text = "button1";
+            this.searchSpotify_btn.Text = "Suggest Songs";
             this.searchSpotify_btn.UseVisualStyleBackColor = true;
             this.searchSpotify_btn.Click += new System.EventHandler(this.searchSpotify_btn_Click);
             // 
             // headlines_list
             // 
             this.headlines_list.FormattingEnabled = true;
-            this.headlines_list.Location = new System.Drawing.Point(12, 127);
+            this.headlines_list.Location = new System.Drawing.Point(12, 12);
             this.headlines_list.Name = "headlines_list";
-            this.headlines_list.Size = new System.Drawing.Size(120, 95);
+            this.headlines_list.Size = new System.Drawing.Size(185, 186);
             this.headlines_list.TabIndex = 1;
             this.headlines_list.SelectedIndexChanged += new System.EventHandler(this.headlines_list_SelectedIndexChanged);
             // 
             // songs_list
             // 
             this.songs_list.FormattingEnabled = true;
-            this.songs_list.Location = new System.Drawing.Point(239, 127);
+            this.songs_list.Location = new System.Drawing.Point(234, 12);
             this.songs_list.Name = "songs_list";
-            this.songs_list.Size = new System.Drawing.Size(112, 95);
+            this.songs_list.Size = new System.Drawing.Size(173, 186);
             this.songs_list.TabIndex = 2;
             this.songs_list.SelectedIndexChanged += new System.EventHandler(this.songs_list_SelectedIndexChanged);
             // 
