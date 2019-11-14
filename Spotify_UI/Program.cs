@@ -24,10 +24,6 @@ namespace Spotify_UI
         static void Main()
         {
             test();
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
         }
 
         internal static void test()
@@ -54,6 +50,10 @@ namespace Spotify_UI
                 if (setup)
                 {
                     profile = new SpotifyProfile(_spotify);
+                    Application.SetHighDpiMode(HighDpiMode.SystemAware);
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new Form1(profile));
                 }
             }
 

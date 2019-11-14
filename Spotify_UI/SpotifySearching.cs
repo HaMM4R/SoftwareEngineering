@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using SpotifyAPI.Web;
 using SpotifyAPI.Web.Auth;
 using SpotifyAPI.Web.Enums;
@@ -8,7 +10,7 @@ using SpotifyAPI.Web.Models;
 
 namespace Spotify_UI
 {
-    class SpotifySearching
+    public class SpotifySearching
     {
         private SpotifyWebAPI _spotify;
         private PrivateProfile _profile; 
@@ -22,11 +24,14 @@ namespace Spotify_UI
             SearchTracks("Cherubrock");
         }
 
-        void SearchAlbums(string s)
+        public List<string> SearchAlbums(string s)
         {
+            List<string> test = new List<string>();
             SearchItem search = _spotify.SearchItemsEscaped(s, SearchType.Album);
             Paging<SimpleAlbum> albums = search.Albums;
-            albums.Items.ForEach(item => Console.WriteLine(item.Name));
+            albums.Items.ForEach(item => test.Add(item.Name));
+
+            return test; 
         }
 
         void SearchArtists(string s)

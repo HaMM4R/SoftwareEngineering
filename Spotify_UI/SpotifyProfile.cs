@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using SpotifyAPI.Web;
 using SpotifyAPI.Web.Auth;
 using SpotifyAPI.Web.Enums;
@@ -13,13 +15,15 @@ namespace Spotify_UI
         private SpotifyWebAPI _spotify;
         private PrivateProfile profile;
 
+        public SpotifySearching search; 
+
         public SpotifyProfile(SpotifyWebAPI s)
         {
             _spotify = s;
             DisplayProfileInformation();
             DisplayPlaylists();
 
-            SpotifySearching search = new SpotifySearching(_spotify, profile); 
+            search = new SpotifySearching(_spotify, profile); 
         }
 
         public void DisplayProfileInformation()
@@ -29,14 +33,16 @@ namespace Spotify_UI
             Console.WriteLine($"Hello there, {name}!");
         }
 
-        public void DisplayPlaylists()
+        public List<string> DisplayPlaylists()
         {
-            Console.WriteLine("Your playlists:");
+            List<string> plList = new List<string>(); 
             Paging<SimplePlaylist> playlists = _spotify.GetUserPlaylists(profile.Id);
             playlists.Items.ForEach(playlist =>
             {
-                Console.WriteLine($"- {playlist.Name}");
+                plList.Add($"- {playlist.Name}"); 
             });
+
+            return plList; 
         }
     }
 }
