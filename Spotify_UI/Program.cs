@@ -23,10 +23,10 @@ namespace Spotify_UI
         [STAThread]
         static void Main()
         {
-            test();
+            AuthoriseSpotify();
         }
 
-        internal static void test()
+        internal static void AuthoriseSpotify()
         {
             SpotifyProfile profile;
             _clientId = string.IsNullOrEmpty(_clientId)

@@ -22,7 +22,7 @@ namespace Spotify_UI
 
         private void searchSongs_btn_Click(object sender, EventArgs e)
         {
-            foreach(string s in _spotify.search.SearchAlbums("Queen"))
+            foreach(string s in _spotify.search.SearchPlaylists("Brexit"))
             {
                 songs_lst.Items.Add(s);
             }

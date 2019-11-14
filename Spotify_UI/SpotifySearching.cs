@@ -26,33 +26,42 @@ namespace Spotify_UI
 
         public List<string> SearchAlbums(string s)
         {
-            List<string> test = new List<string>();
+            List<string> albmList = new List<string>();
             SearchItem search = _spotify.SearchItemsEscaped(s, SearchType.Album);
             Paging<SimpleAlbum> albums = search.Albums;
-            albums.Items.ForEach(item => test.Add(item.Name));
+            albums.Items.ForEach(item => albmList.Add(item.Name));
 
-            return test; 
+            return albmList; 
         }
 
-        void SearchArtists(string s)
+        public List<string> SearchArtists(string s)
         {
+            List<string> artList = new List<string>();
             SearchItem search = _spotify.SearchItemsEscaped(s, SearchType.Artist);
             Paging<FullArtist> artist = search.Artists;
-            artist.Items.ForEach(item => Console.WriteLine(item.Name));
+            artist.Items.ForEach(item => artList.Add(item.Name));
+
+            return artList;
         }
 
-        /*void SearchPlaylists(string s)
+        public List<string> SearchPlaylists(string s)
         {
+            List<string> plList = new List<string>();
             SearchItem search = _spotify.SearchItemsEscaped(s, SearchType.Playlist);
             Paging<SimplePlaylist> playlist = search.Playlists;
-            playlist.Items.ForEach(item => Console.WriteLine(item.Name));
-        }*/
+            playlist.Items.ForEach(item => plList.Add(item.Name));
 
-        void SearchTracks(string s)
+            return plList;
+        }
+
+        public List<string> SearchTracks(string s)
         {
+            List<string> trkList = new List<string>();
             SearchItem search = _spotify.SearchItemsEscaped(s, SearchType.Track);
             Paging<FullTrack> track = search.Tracks;
-            track.Items.ForEach(item => Console.WriteLine(item.Name));
+            track.Items.ForEach(item => trkList.Add(item.Name));
+
+            return trkList;
         }
     }
 }
