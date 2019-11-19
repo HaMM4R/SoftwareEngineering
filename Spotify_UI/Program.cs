@@ -28,6 +28,7 @@ namespace Spotify_UI
 
         internal static void test()
         {
+            News n = new News(); 
             SpotifyProfile profile;
             _clientId = string.IsNullOrEmpty(_clientId)
                 ? Environment.GetEnvironmentVariable("SPOTIFY_CLIENT_ID")
