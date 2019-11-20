@@ -18,7 +18,7 @@ namespace Spotify_UI
     public partial class Form1 : Form
     {
         private SpotifyProfile _spotify;
-        News n = new News(); 
+        private News news = new News(); 
         public Form1(SpotifyProfile s)
         {
             _spotify = s;
@@ -32,29 +32,12 @@ namespace Spotify_UI
                 songs_lst.Items.Add(s);
             }
 
-            var newsApiClient = new NewsApiClient("ddce5783271a4c67b9d0e82e3355610b");
+            List<string> results = await news.SearchNews("Brexit");
 
-            var articlesResponse = await newsApiClient.GetEverythingAsync(new EverythingRequest
+            foreach(string s in results)
             {
-                Q = "Brexit",
-                SortBy = SortBys.Popularity,
-                Language = Languages.EN,
-                From = DateTime.Now.AddDays(-2)
-            });
-
-            if (articlesResponse.Status == Statuses.Ok)
-            {
-                // total results found
-                Console.WriteLine(articlesResponse.TotalResults);
-
-                // here's the first 20
-                foreach (var article in articlesResponse.Articles)
-                {
-                    songs_lst.Items.Add(article.Title);
-                }
+                headlines_lst.Items.Add(s);
             }
-
-            Console.ReadLine();
         }
         
     
