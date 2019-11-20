@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NewsAPI" Version="0.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NewsAPIProviders\NewsAPIProviders.csproj" />
     <ProjectReference Include="..\SpotifyAPI.Web.Auth\SpotifyAPI.Web.Auth.csproj" />
     <ProjectReference Include="..\SpotifyAPI.Web.Example\SpotifyAPI.Web.Example.csproj" />
     <ProjectReference Include="..\SpotifyAPI.Web.Tests\SpotifyAPI.Web.Tests.csproj" />

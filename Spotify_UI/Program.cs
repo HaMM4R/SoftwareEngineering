@@ -23,10 +23,10 @@ namespace Spotify_UI
         [STAThread]
         static void Main()
         {
-            AuthoriseSpotify();
+            SpotifyAuth();
         }
 
-        internal static void AuthoriseSpotify()
+        internal static void SpotifyAuth()
         {
             SpotifyProfile profile;
             _clientId = string.IsNullOrEmpty(_clientId)
@@ -75,21 +75,6 @@ namespace Spotify_UI
 
             _spotify = api;
             setup = true;
-        }
-
-
-        private static async void PrintUsefulData(SpotifyWebAPI api, string test)
-        {
-            PrivateProfile profile = await api.GetPrivateProfileAsync();
-            string name = string.IsNullOrEmpty(profile.DisplayName) ? profile.Id : profile.DisplayName;
-            Console.WriteLine($"Hello there, {name}!");
-            Console.WriteLine("Your playlists:");
-            Paging<SimplePlaylist> playlists = api.GetUserPlaylists(profile.Id);
-            playlists.Items.ForEach(playlist =>
-            {
-                Console.WriteLine($" - {playlist.Tracks.Total} ");
-                Console.WriteLine($"- {playlist.Name}");
-            });
         }
     }
 }

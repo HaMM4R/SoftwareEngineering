@@ -7,26 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using NewsAPIProviders;
+using System.Diagnostics;
+using NewsAPI;
+using NewsAPI.Models;
+using NewsAPI.Constants;
 
 namespace Spotify_UI
 {
     public partial class Form1 : Form
     {
-        private SpotifyProfile _spotify; 
+        private SpotifyProfile _spotify;
+        private News news = new News(); 
         public Form1(SpotifyProfile s)
         {
-            _spotify = s; 
+            _spotify = s;
             InitializeComponent();
         }
 
-        private void searchSongs_btn_Click(object sender, EventArgs e)
+        private async void searchSongs_btn_Click(object sender, EventArgs e)
         {
-            foreach(string s in _spotify.search.SearchPlaylists("Brexit"))
+            foreach (var s in _spotify.search.SearchAlbums("Queen"))
             {
                 songs_lst.Items.Add(s);
             }
+
+            List<string> results = await news.SearchNews("Brexit");
+
+            foreach(string s in results)
+            {
+                headlines_lst.Items.Add(s);
+            }
         }
+        
+    
 
         private void headlines_lst_SelectedIndexChanged(object sender, EventArgs e)
         {
