@@ -13,6 +13,12 @@ namespace Spotify_UI
 
         public News()
         {
+            
+        }
+
+        public List<string> NewsSearch()
+        {
+            List<string> s = new List<string>(); 
             string q = "Queen";
 
             //Call the 3 APIs
@@ -24,8 +30,10 @@ namespace Spotify_UI
             foreach (var test in newsApiNewsArticles)
             {
                 Debug.WriteLine(test.title);
+                s.Add(test.title);
             }
-
+            return s; 
+            
         }
 
 
