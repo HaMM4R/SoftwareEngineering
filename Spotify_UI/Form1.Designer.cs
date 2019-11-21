@@ -35,12 +35,14 @@
             this.playlistToggle_chkbx = new System.Windows.Forms.CheckBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.newsCategory_cmbx = new System.Windows.Forms.ComboBox();
+            this.newsSearch_btn = new System.Windows.Forms.Button();
+            this.songSearchType_cmbx = new System.Windows.Forms.ComboBox();
             // 
             // searchSongs_btn
             // 
-            this.searchSongs_btn.Location = new System.Drawing.Point(15, 381);
+            this.searchSongs_btn.Location = new System.Drawing.Point(150, 381);
             this.searchSongs_btn.Name = "searchSongs_btn";
-            this.searchSongs_btn.Size = new System.Drawing.Size(135, 54);
+            this.searchSongs_btn.Size = new System.Drawing.Size(95, 55);
             this.searchSongs_btn.TabIndex = 0;
             this.searchSongs_btn.Text = "Suggest Songs";
             this.searchSongs_btn.UseVisualStyleBackColor = true;
@@ -79,7 +81,7 @@
             // playlistToggle_chkbx
             // 
             this.playlistToggle_chkbx.AutoSize = true;
-            this.playlistToggle_chkbx.Location = new System.Drawing.Point(423, 10);
+            this.playlistToggle_chkbx.Location = new System.Drawing.Point(429, 300);
             this.playlistToggle_chkbx.Name = "playlistToggle_chkbx";
             this.playlistToggle_chkbx.Size = new System.Drawing.Size(127, 19);
             this.playlistToggle_chkbx.TabIndex = 3;
@@ -96,17 +98,38 @@
             // 
             // newsCategory_cmbx
             // 
+            this.newsCategory_cmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.newsCategory_cmbx.FormattingEnabled = true;
             this.newsCategory_cmbx.Location = new System.Drawing.Point(123, 6);
             this.newsCategory_cmbx.Name = "newsCategory_cmbx";
             this.newsCategory_cmbx.Size = new System.Drawing.Size(121, 23);
             this.newsCategory_cmbx.TabIndex = 5;
             // 
+            // newsSearch_btn
+            // 
+            this.newsSearch_btn.Location = new System.Drawing.Point(15, 381);
+            this.newsSearch_btn.Name = "newsSearch_btn";
+            this.newsSearch_btn.Size = new System.Drawing.Size(95, 55);
+            this.newsSearch_btn.TabIndex = 6;
+            this.newsSearch_btn.Text = "Find Headline";
+            this.newsSearch_btn.UseVisualStyleBackColor = true;
+            // 
+            // songSearchType_cmbx
+            // 
+            this.songSearchType_cmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.songSearchType_cmbx.FormattingEnabled = true;
+            this.songSearchType_cmbx.Location = new System.Drawing.Point(429, 6);
+            this.songSearchType_cmbx.Name = "songSearchType_cmbx";
+            this.songSearchType_cmbx.Size = new System.Drawing.Size(121, 23);
+            this.songSearchType_cmbx.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.songSearchType_cmbx);
+            this.Controls.Add(this.newsSearch_btn);
             this.Controls.Add(this.newsCategory_cmbx);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.playlistToggle_chkbx);
@@ -128,6 +151,8 @@
         private System.Windows.Forms.CheckBox playlistToggle_chkbx;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox newsCategory_cmbx;
+        private System.Windows.Forms.Button newsSearch_btn;
+        private System.Windows.Forms.ComboBox songSearchType_cmbx;
     }
 }
 
