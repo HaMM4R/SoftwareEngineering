@@ -39,14 +39,13 @@ namespace Spotify_UI
             songSearchType_cmbx.Items.Add("Albums");
             songSearchType_cmbx.Items.Add("Artists");
             songSearchType_cmbx.Items.Add("Playlists");
-
-
-
+            songSearchType_cmbx.SelectedItem = ("Songs");
         }
 
+        List<string> results;
         private async void newsSearch_btn_Click(object sender, EventArgs e)
         {
-            List<string> results = await news.SearchNews("Brexit");
+            results = await news.SearchNews("Brexit");
 
             foreach (string s in results)
             {
@@ -55,10 +54,39 @@ namespace Spotify_UI
         }
         private void searchSongs_btn_Click(object sender, EventArgs e)
         {
-            foreach (var s in _spotify.search.SearchAlbums("Queen"))
+            songs_lst.Items.Clear();
+            if (headlines_lst.Items.Count != 0)
             {
-                songs_lst.Items.Add(s);
+                if ((string)songSearchType_cmbx.SelectedItem == "Songs")
+                {
+                    foreach (var s in _spotify.search.SearchTracks(results[0]))
+                    {
+                        songs_lst.Items.Add(s);
+                    }
+                }
+                else if ((string)songSearchType_cmbx.SelectedItem == "Albums")
+                {
+                    foreach (var s in _spotify.search.SearchAlbums("Queen"))
+                    {
+                        songs_lst.Items.Add(s);
+                    }
+                }
+                else if ((string)songSearchType_cmbx.SelectedItem == "Artists")
+                {
+                    foreach (var s in _spotify.search.SearchArtists("Queen"))
+                    {
+                        songs_lst.Items.Add(s);
+                    }
+                }
+                else
+                {
+                    foreach (var s in _spotify.search.SearchPlaylists("Queen"))
+                    {
+                        songs_lst.Items.Add(s);
+                    }
+                }
             }
+            
         }
         
     
