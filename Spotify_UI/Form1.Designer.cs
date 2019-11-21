@@ -104,6 +104,7 @@
             this.newsCategory_cmbx.Name = "newsCategory_cmbx";
             this.newsCategory_cmbx.Size = new System.Drawing.Size(121, 23);
             this.newsCategory_cmbx.TabIndex = 5;
+            this.newsCategory_cmbx.SelectedIndexChanged += new System.EventHandler(this.newsCategory_cmbx_SelectedIndexChanged);
             // 
             // newsSearch_btn
             // 
@@ -113,6 +114,7 @@
             this.newsSearch_btn.TabIndex = 6;
             this.newsSearch_btn.Text = "Find Headline";
             this.newsSearch_btn.UseVisualStyleBackColor = true;
+            this.newsSearch_btn.Click += new System.EventHandler(this.newsSearch_btn_Click);
             // 
             // songSearchType_cmbx
             // 
@@ -122,6 +124,7 @@
             this.songSearchType_cmbx.Name = "songSearchType_cmbx";
             this.songSearchType_cmbx.Size = new System.Drawing.Size(121, 23);
             this.songSearchType_cmbx.TabIndex = 7;
+            this.songSearchType_cmbx.SelectedIndexChanged += new System.EventHandler(this.songSearchType_cmbx_SelectedIndexChanged);
             // 
             // Form1
             // 

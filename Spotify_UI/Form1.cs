@@ -23,20 +23,41 @@ namespace Spotify_UI
         {
             _spotify = s;
             InitializeComponent();
+            ComboBoxes_Load();
         }
 
-        private async void searchSongs_btn_Click(object sender, EventArgs e)
+        private void ComboBoxes_Load()
+        {
+            newsCategory_cmbx.Items.Add("UK News");
+            newsCategory_cmbx.Items.Add("World News");
+            newsCategory_cmbx.Items.Add("Tech");
+            newsCategory_cmbx.Items.Add("Economy");
+            newsCategory_cmbx.Items.Add("Brexit");
+
+
+            songSearchType_cmbx.Items.Add("Songs");
+            songSearchType_cmbx.Items.Add("Albums");
+            songSearchType_cmbx.Items.Add("Artists");
+            songSearchType_cmbx.Items.Add("Playlists");
+
+
+
+        }
+
+        private async void newsSearch_btn_Click(object sender, EventArgs e)
+        {
+            List<string> results = await news.SearchNews("Brexit");
+
+            foreach (string s in results)
+            {
+                headlines_lst.Items.Add(s);
+            }
+        }
+        private void searchSongs_btn_Click(object sender, EventArgs e)
         {
             foreach (var s in _spotify.search.SearchAlbums("Queen"))
             {
                 songs_lst.Items.Add(s);
-            }
-
-            List<string> results = await news.SearchNews("Brexit");
-
-            foreach(string s in results)
-            {
-                headlines_lst.Items.Add(s);
             }
         }
         
@@ -51,5 +72,16 @@ namespace Spotify_UI
         {
            
         }
+
+        private void songSearchType_cmbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void newsCategory_cmbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
