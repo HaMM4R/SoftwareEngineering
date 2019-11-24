@@ -55,32 +55,35 @@ namespace Spotify_UI
         private void searchSongs_btn_Click(object sender, EventArgs e)
         {
             songs_lst.Items.Clear();
+
+            string selectedHeadline = headlines_lst.GetItemText(headlines_lst.SelectedItem);
+
             if (headlines_lst.Items.Count != 0)
             {
                 if ((string)songSearchType_cmbx.SelectedItem == "Songs")
                 {
-                    foreach (var s in _spotify.search.SearchTracks(results[0]))
+                    foreach (var s in _spotify.search.SearchTracks(selectedHeadline.Substring(0, 12)))
                     {
                         songs_lst.Items.Add(s);
                     }
                 }
                 else if ((string)songSearchType_cmbx.SelectedItem == "Albums")
                 {
-                    foreach (var s in _spotify.search.SearchAlbums("Queen"))
+                    foreach (var s in _spotify.search.SearchAlbums(selectedHeadline.Substring(0, 12)))
                     {
                         songs_lst.Items.Add(s);
                     }
                 }
                 else if ((string)songSearchType_cmbx.SelectedItem == "Artists")
                 {
-                    foreach (var s in _spotify.search.SearchArtists("Queen"))
+                    foreach (var s in _spotify.search.SearchArtists(selectedHeadline.Substring(0, 12)))
                     {
                         songs_lst.Items.Add(s);
                     }
                 }
                 else
                 {
-                    foreach (var s in _spotify.search.SearchPlaylists("Queen"))
+                    foreach (var s in _spotify.search.SearchPlaylists(selectedHeadline.Substring(0, 12)))
                     {
                         songs_lst.Items.Add(s);
                     }
