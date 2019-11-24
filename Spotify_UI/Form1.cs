@@ -18,7 +18,9 @@ namespace Spotify_UI
     public partial class Form1 : Form
     {
         private SpotifyProfile _spotify;
-        private News news = new News(); 
+        private News news = new News();
+        private Keywords keywords = new Keywords(); 
+
         public Form1(SpotifyProfile s)
         {
             _spotify = s;
@@ -54,6 +56,7 @@ namespace Spotify_UI
             songs_lst.Items.Clear();
 
             string selectedHeadline = headlines_lst.GetItemText(headlines_lst.SelectedItem);
+            selectedHeadline = keywords.FindKeywords(selectedHeadline); 
 
             if (headlines_lst.Items.Count != 0)
             {
@@ -89,8 +92,6 @@ namespace Spotify_UI
             
         }
         
-    
-
         private void headlines_lst_SelectedIndexChanged(object sender, EventArgs e)
         {
 
