@@ -28,13 +28,6 @@ namespace Spotify_UI
 
         private void ComboBoxes_Load()
         {
-            newsCategory_cmbx.Items.Add("UK News");
-            newsCategory_cmbx.Items.Add("World News");
-            newsCategory_cmbx.Items.Add("Tech");
-            newsCategory_cmbx.Items.Add("Economy");
-            newsCategory_cmbx.Items.Add("Brexit");
-
-
             songSearchType_cmbx.Items.Add("Songs");
             songSearchType_cmbx.Items.Add("Albums");
             songSearchType_cmbx.Items.Add("Artists");
@@ -45,7 +38,11 @@ namespace Spotify_UI
         List<string> results;
         private async void newsSearch_btn_Click(object sender, EventArgs e)
         {
-            results = await news.SearchNews("Brexit");
+            string searchfilter = headlineSearch_txt.Text;
+
+            headlines_lst.Items.Clear();
+
+            results = await news.SearchNews(searchfilter);
 
             foreach (string s in results)
             {
@@ -114,5 +111,9 @@ namespace Spotify_UI
 
         }
 
+        private void headlineSearch_txt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace Spotify_UI
 
             var articlesResponse = await newsApiClient.GetEverythingAsync(new EverythingRequest
             {
-                Q = "Brexit",
+                Q = search,
                 SortBy = SortBys.Popularity,
                 Language = Languages.EN,
                 From = DateTime.Now.AddDays(-2)
